@@ -1,4 +1,4 @@
-export default function(api) {
+/* export default function(api) {
   api.cache(true);
   return {
     presets: ['babel-preset-expo'],
@@ -19,11 +19,11 @@ export const plugins = [
     },
   ],
   'react-native-reanimated/plugin',
-];
+]; */
 
 
 
-/* module.exports = function(api) {
+module.exports = function(api) {
   api.cache(true);
   return {
     presets: ['babel-preset-expo'],
@@ -47,4 +47,3 @@ module.exports = {
     'react-native-reanimated/plugin',
   ],
 }
- */
