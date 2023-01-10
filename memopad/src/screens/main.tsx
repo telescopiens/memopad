@@ -1,13 +1,14 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet } from 'react-native'
+import { Box, Text } from '@/atoms'
 
 export default function MainScreen() {
     return (
-        <View style={styles.container}>
+        <Box>
             <Text>
                 LUZ AL INSTANTE
             </Text>
-        </View>
+        </Box>
     )
 }
 const styles = StyleSheet.create({
