@@ -1,10 +1,23 @@
 import * as React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { createDrawerNavigator } from '@react-navigation/drawer'
+import { NavigatorScreenParams } from '@react-navigation/native'
 import MainScreen from './screens/main';
+import Sidebar from './components/sidebar';
 
-const Stack = createNativeStackNavigator();
-const Drawer = createDrawerNavigator();
+export type HomeDrawerParamList = {
+    Main: {}
+}
+
+export type RootStackParamList = {
+    Home: NavigatorScreenParams<HomeDrawerParamList>
+    Detail: {
+        noteId: string
+    }
+}
+
+const Stack = createNativeStackNavigator<RootStackParamList>();
+const Drawer = createDrawerNavigator<HomeDrawerParamList>();
 
 function Home() {
     return (
@@ -12,7 +25,8 @@ function Home() {
             screenOptions={{
                 drawerType: 'back',
                 swipeEdgeWidth: 200
-            }}>
+            }}
+            drawerContent={props => <Sidebar {...props} /> } >
                 <Drawer.Screen name='Main'
                     component={MainScreen}
                     options={{
