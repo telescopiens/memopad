@@ -1,4 +1,5 @@
 import Box from './box';
 import Text from './text';
+import Container from './container';
 
-export { Box, Text }
+export { Box, Text, Container }

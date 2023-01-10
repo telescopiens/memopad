@@ -1,14 +1,14 @@
 import React from 'react';
 import { StyleSheet } from 'react-native'
-import { Box, Text } from '@/atoms'
+import { Container, Text } from '@/atoms'
 
 export default function MainScreen() {
     return (
-        <Box>
+        <Container justifyContent="center" alignItems="center">
             <Text>
                 LUZ AL INSTANTE
             </Text>
-        </Box>
+        </Container>
     )
 }
 const styles = StyleSheet.create({
