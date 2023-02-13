@@ -3,7 +3,7 @@ import { Note } from "@/models";
 import { Theme } from "@/themes";
 import { createBox } from "@shopify/restyle";
 import { FlatList, FlatListProps } from "react-native";
-import NOTES from '@/fixtures/notes'
+import DATA from '@/fixtures/notes'
 import NoteListItem from './note-list-item';
 
 const StyledFlatList = createBox<Theme, FlatListProps<Note>>(FlatList)
@@ -18,7 +18,7 @@ const NoteList: React.FC<Props> = () => {
     return (
         <StyledFlatList
             contentInsetAdjustmentBehavior="automatic"
-            data={NOTES}
+            data={DATA}
             renderItem={renderItem}
             keyExtractor={item => item.id}
             width={'100%'} />
