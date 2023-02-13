@@ -6,7 +6,7 @@ import NoteList from '@/components/note-list';
 export default function MainScreen() {
     return (
         <Container justifyContent="center" alignItems="center">
-            <Text> LUZ AL INSTANTE </Text>
+            <NoteList />
         </Container>
     )
 }
