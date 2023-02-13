@@ -9,7 +9,7 @@ const NoteListItem: React.FC<ListItemProps> = props => {
         <Box bg="$background">
             <Box bg="$background" px="lg" py="sm">
                 <Text>{props.body}</Text>
-            </Box>
+            </Box> 
         </Box>
     )
 }
