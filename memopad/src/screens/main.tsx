@@ -1,11 +1,21 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { StyleSheet } from 'react-native'
 import { Container, Box, TouchableOpacity, Text } from '@/atoms'
 import NoteList from '@/components/note-list';
 import HeaderBar from '@/components/header-bar';
 import FeatherIcon from '@/components/icon';
+import { CompositeScreenProps } from '@react-navigation/native';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { HomeDrawerParamList, RootStackParamList } from '@/navs';
+import { DrawerScreenProps } from '@react-navigation/drawer';
 
-export default function MainScreen() {
+type Props = CompositeScreenProps<
+    DrawerScreenProps<HomeDrawerParamList, 'Main'>,
+    NativeStackScreenProps<RootStackParamList>
+>
+
+export default function MainScreen({navigation}: Props) {
+    const handleSidebarToggle = useCallback
     return (
         <Container justifyContent="center" alignItems="center">
             <NoteList />
