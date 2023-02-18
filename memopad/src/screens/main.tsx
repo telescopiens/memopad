@@ -14,19 +14,21 @@ type Props = CompositeScreenProps<
     NativeStackScreenProps<RootStackParamList>
 >
 
-export default function MainScreen({navigation}: Props) {
-    const handleSidebarToggle = useCallback
+export default function MainScreen({ navigation }: Props) {
+    const handleSidebarToggle = useCallback(() => {
+        navigation.toggleDrawer()
+    }, [navigation])
     return (
         <Container justifyContent="center" alignItems="center">
             <NoteList />
             <HeaderBar>
-                <TouchableOpacity m={'xs'} p={'xs'} rippleBorderless>
+                <TouchableOpacity m={'xs'} p={'xs'} rippleBorderless onPress={handleSidebarToggle} >
                     <FeatherIcon name='menu' size={22}/>
                 </TouchableOpacity>
                 <Box flex={1} alignItems={'center'}>
                     <Text fontWeight={'bold'}>Notas</Text>
                 </Box>
-                <TouchableOpacity m={'xs'} p={'xs'} rippleBorderless>
+                <TouchableOpacity m={'xs'} p={'xs'} rippleBorderless >
                     <FeatherIcon name='list' size={22}/>
                 </TouchableOpacity>
             </HeaderBar> 
