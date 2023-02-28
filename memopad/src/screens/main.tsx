@@ -8,6 +8,7 @@ import { CompositeScreenProps } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { HomeDrawerParamList, RootStackParamList } from '@/navs';
 import { DrawerScreenProps } from '@react-navigation/drawer';
+import useStickyHeader from '@/hooks/use-sticky-header';
 
 type Props = CompositeScreenProps<
     DrawerScreenProps<HomeDrawerParamList, 'Main'>,
@@ -15,13 +16,14 @@ type Props = CompositeScreenProps<
 >
 
 export default function MainScreen({ navigation }: Props) {
+    const { handleNoteListLayout, handleScroll, headerBarStyle, headerBarHeight } = useStickyHeader()
     const handleSidebarToggle = useCallback(() => {
         navigation.toggleDrawer()
     }, [navigation])
     return (
         <Container justifyContent="center" alignItems="center">
-            <NoteList />
-            <HeaderBar>
+            <NoteList contentInsetTop={headerBarHeight} onScroll={handleScroll} />
+            <HeaderBar style={headerBarStyle} onLayout={handleNoteListLayout} >
                 <TouchableOpacity m={'xs'} p={'xs'} rippleBorderless onPress={handleSidebarToggle} >
                     <FeatherIcon name='menu' size={22}/>
                 </TouchableOpacity>
